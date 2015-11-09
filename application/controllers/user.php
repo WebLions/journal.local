@@ -13,7 +13,7 @@ class User extends CI_Controller{
 		$login = trim($_POST['login']);
 		$password = trim($_POST['password']);
 		if( !empty($login) && !empty($password) ){
-			$result = $this->user_model->login($logim, $password);
+			$result = $this->user_model->login($login, $password);
 			if($result){
 				header('Location: /admin');
 			}else{
