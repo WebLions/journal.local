@@ -24,9 +24,9 @@
    
 <div class="container">
 	<div class="row">
-		<div class="col-md-10">
+		<div class="col-md-12 alert alert-success">
 		
-			<h1><span class="label label-default">Header</span></h1>
+			<h1>Header</h1>
 			
 		</div>
 			
@@ -36,7 +36,7 @@
 		<div class="col-md-8">
 				
 				
-			<?php foreach($post as $post):?>
+			<?php foreach($posts as $post):?>
 				<div class="row">
 					 <div class="col-md-10">		
 						<h3><?php echo $post['title'];?></h3>
