@@ -17,7 +17,7 @@ class Admin_model extends CI_Model{
 		$data = array(
 			   'title' => $title ,
 			   'description' => $description ,
-			   'date' => date("Y-m-d");
+			   'date' => date("Y-m-d")
 			);
 		$this->db->insert('posts', $data); 
 		return true;
