@@ -84,7 +84,7 @@
 				
 				<div class="alert alert-success">
 				<span>Последнее обновление сайта:</span><br>
-				<span style="float:right;">09.11.2015</span><br></div>
+				<span style="float:right;"><?php echo $update;?></span><br></div>
 					
 				
 				</div>

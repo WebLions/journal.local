@@ -206,16 +206,16 @@
                             Список новостей
                         </h3>
 						
-                        <ol class="breadcrumb">
+                        <ol style="list-style-type:none;">
 						<?php foreach($posts as $post):?>
-                            <li class="active">
+                            <li class="active" style="float:left;width:100%">
                                <?=$post['title']?>
-							   <a style="float:right;"href="admin/delete_post?id=<?=$post['id']?>">Удалить новость</a>
-                            </li>
+							   <a style="float:right;" href="delete_post?id=<?=$post['id']?>">Удалить новость</a>
+                            </li><br>
 						<?php endforeach;?>
                         </ol>
 					</div>
-					<form action="admin/add_post" method="post">
+					<form action="/admin/add_post" method="post">
 					<div class="col-md-12">
                         <div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">!</span>
@@ -227,7 +227,7 @@
 						<textarea name="description" type="text" class="form-control" placeholder="Текст новости" aria-describedby="basic-addon1"> </textarea>
 					</div>
 					<br>
-					<button style="float:right;"type="button" class="btn btn-success">Добавить новость</button>
+					<button style="float:right;" type="submit" class="btn btn-success">Добавить новость</button>
 					
 					</div>
 					</form>

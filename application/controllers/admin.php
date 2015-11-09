@@ -11,7 +11,7 @@ class Admin extends CI_Controller{
 
 	public function index()
 	{
-		$data['post'] = $this->home_model->index();
+		$data['posts'] = $this->home_model->index();
 		$this->load->view('admin/home.php',$data);
 	}
 
@@ -28,8 +28,8 @@ class Admin extends CI_Controller{
 
 	public function delete_post()
 	{
-		$id = (int) $_GET['id_post'];
-		if( !empty($title) && !empty($description) ){
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
 			if( $this->admin_model->delete_post($id) ){
 				header('Location: /admin/index');
 			}
