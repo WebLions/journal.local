@@ -68,7 +68,7 @@
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">!</span>
-						<input name="login" type="text" class="form-control" placeholder="Пароль" aria-describedby="basic-addon1">
+						<input name="password" type="text" class="form-control" placeholder="Пароль" aria-describedby="basic-addon1">
 					</div>
 					<br>
 					<button  style="float:right;" type="submit" class="btn btn-success">Войти</button>
