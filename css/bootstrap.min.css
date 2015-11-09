@@ -5790,3 +5790,10 @@ td.visible-print {
 .date-float{		
 		float:right;
 	}
+.content-border-right{
+	border-right: 2px solid #90A291;
+		
+}
+.content-border-bottom{
+	border-bottom: 2px solid #90A291;
+}
