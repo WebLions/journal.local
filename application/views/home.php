@@ -100,7 +100,7 @@
 	<div class="row">
         <div class="col-sm-12 alert alert-info">
 		
-            <span>Free MEME</span>
+            <span></span>
         
 		</div>
     </div>
