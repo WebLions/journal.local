@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'angara5.beget.ru';
 $db['default']['username'] = 'fb3809sd_journal';
-$db['default']['password'] = 'journal_db';
+$db['default']['password'] = '123456';
 $db['default']['database'] = 'fb3809sd_journal';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
