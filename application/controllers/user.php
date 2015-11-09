@@ -15,7 +15,7 @@ class User extends CI_Controller{
 		if( !empty($login) && !empty($password) ){
 			$result = $this->user_model->login($login, $password);
 			if($result){
-				header('Location: /admin');
+				header('Location: /admin/index');
 			}else{
 				header('Location: /');
 			}
