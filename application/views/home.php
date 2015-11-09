@@ -26,7 +26,7 @@
 	<div class="row">
 		<div class="col-md-12 alert alert-success">
 		
-			<h1>Header</h1>
+			<span>Header</span>
 			
 		</div>
 			
@@ -58,7 +58,15 @@
 			
 				<div class="col-md-10">
 				
-					<p>админка</p>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">!</span>
+						<input type="text" class="form-control" placeholder="Логин" aria-describedby="basic-addon1">
+					</div>
+					
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">!</span>
+						<input type="text" class="form-control" placeholder="Пароль" aria-describedby="basic-addon1">
+					</div>
 				
 				</div>
 			
