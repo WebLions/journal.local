@@ -46,32 +46,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Админитративная панель</a>
+                <a class="navbar-brand" >Административная панель</a>
             </div>
-            <!-- Top Menu Items -->
-           
+            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="/">Главная</a>
+                        <a href="/"><i class="fa fa-fw fa-dashboard"></i>Главная</a>
                     </li>
                     <li>
-                        <a href="#">Опция 2</a>
+                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i>Опция 2</a>
                     </li>
                     <li>
-                        <a href="#">Опция 3</a>
+                        <a href="#"><i class="fa fa-fw fa-table"></i>Опция 3</a>
                     </li>
                     <li>
-                        <a href="#">Опция 4</a>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Опция 4</a>
                     </li>
                     <li>
-                        <a href="#">Опция 5</a>
+                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Опция 5</a>
                     </li>
                     <li>
-                        <a href="#">Опция 6</a>
+                        <a href="#"><i class="fa fa-fw fa-wrench"></i> Опция 6</a>
                     </li>
-                   
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
@@ -90,19 +101,17 @@
                             Список новостей
                         </h3>
 						
-                        <ol style="list-style-type:none;">
+                        <ol class="breadcrumb">
 						<?php foreach($posts as $post):?>
-                            <li class="active" style="float:left;width:100%">
+                            <li class="active">
                                <?=$post['title']?>
-							   <a style="float:right;" href="delete_post?id=<?=$post['id']?>">Удалить новость &nbsp</a>
-							   <a style="float:right;" href="change_post?id=<?=$post['id']?>">Редактировать новость &nbsp </a>
-							   <a style="float:right;" href="preview_post?id=<?=$post['id']?>">Предсмотр новости &nbsp</a>
-                            </li><br>
+							   <a style="float:right;"href="admin/delete_post?id=<?=$post['id']?>">Удалить новость</a>
+                            </li>
+							<br>
 						<?php endforeach;?>
                         </ol>
-						
 					</div>
-					<form action="/admin/add_post" method="post">
+					<form action="admin/add_post" method="post">
 					<div class="col-md-12">
                         <div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">!</span>
@@ -114,7 +123,7 @@
 						<textarea name="description" type="text" class="form-control" placeholder="Текст новости" aria-describedby="basic-addon1"> </textarea>
 					</div>
 					<br>
-					<button style="float:right;" type="submit" class="btn btn-success">Добавить новость</button>
+					<button style="float:right;"type="button" class="btn btn-success">Добавить новость</button>
 					
 					</div>
 					</form>
