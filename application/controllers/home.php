@@ -26,6 +26,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['posts'] = $this->home_model->index();
+		$data['update'] = $this->home_model->get_update();
 		$this->load->view('home', $data);
 	}
 }
