@@ -16,6 +16,8 @@ class Admin_model extends CI_Model{
 		$return['teacher'] = $query->result_array();
 		$query = $this->db->get('subject');
 		$return['subject'] = $query->result_array();
+		$query = $this->db->get('student');
+		$return['student'] = $query->result_array();
 		return $return;
 	}
 	public function add_post($title, $description)
@@ -56,7 +58,7 @@ class Admin_model extends CI_Model{
 		$data = array(
 			   'fio' => $fio ,
 			   'login' => $login ,
-			   'password' => md5(md5($password)."solt");
+			   'password' => md5(md5($password)."solt")
 			);
 		$this->db->insert('teacher', $data); 
 		return true;
@@ -73,7 +75,7 @@ class Admin_model extends CI_Model{
 		$data = array(
                'fio' => $_POST['fio'],
                'login' => $_POST['login'],
-               'password' => md5(md5($_POST['password'])."solt");
+               'password' => md5(md5($_POST['password'])."solt")
             );
 
 		$this->db->where('id', $id);
@@ -132,7 +134,7 @@ class Admin_model extends CI_Model{
 		$data = array(
 			   'fio' => $fio ,
 			   'login' => $login ,
-			   'password' => md5(md5($password).'solt');
+			   'password' => md5(md5($password).'solt')
 			);
 		$this->db->insert('student', $data); 
 		return true;

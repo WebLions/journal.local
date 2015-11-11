@@ -115,16 +115,16 @@
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
                         
-						<?php foreach($posts as $post):?>
+						<?php foreach($teacher as $teachers):?>
 						
 							<tr>
 								
-									<td><?=$post['title']?></td>
+									<td><?=$teachers['fio']?></td>
 									<td></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="change_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-eye-open btn btn-info btn-xs" style="float:right;" href="preview_post?id=<?=$post['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_teacher?id=<?=$teachers['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="edit_post?id=<?=$teachers['id']?>"></a>
+				
 									</td>
 								
 							</tr>
@@ -176,16 +176,15 @@
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
 							
-						<?php foreach($posts as $post):?>
+						<?php foreach($student as $students):?>
 						
 							<tr>
 								
-									<td><?=$post['title']?></td>
+									<td><?=$students['fio']?></td>
 									<td></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="change_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-eye-open btn btn-info btn-xs" style="float:right;" href="preview_post?id=<?=$post['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_student?id=<?=$students['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="edit_student?id=<?=$students['id']?>"></a>
 									</td>
 								
 							</tr>
@@ -204,15 +203,14 @@
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
 							
-						<?php foreach($posts as $post):?>
+						<?php foreach($subject as $subjects):?>
 						
 							<tr>
 								
-									<td><?=$post['title']?></td>
+									<td><?=$subjects['name']?></td>
 									<td>
 										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_post?id=<?=$post['id']?>"></a>
 										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="change_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-eye-open btn btn-info btn-xs" style="float:right;" href="preview_post?id=<?=$post['id']?>"></a>
 									</td>
 								
 							</tr>
