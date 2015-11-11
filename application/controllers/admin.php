@@ -35,7 +35,6 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-
 	public function edit_post()
 	{
 		$id = (int) $_GET['id'];
