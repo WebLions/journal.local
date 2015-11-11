@@ -16,6 +16,8 @@ class Admin_model extends CI_Model{
 		$return['teacher'] = $query->result_array();
 		$query = $this->db->get('subject');
 		$return['subject'] = $query->result_array();
+		$query = $this->db->get('student');
+		$return['student'] = $query->result_array();
 		return $return;
 	}
 	public function add_post($title, $description)
