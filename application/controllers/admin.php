@@ -119,39 +119,39 @@ class Admin extends CI_Controller{
 		}
 	}
 	//student
-	public function student()
+	public function users()
 	{
 		$data['student'] = $this->admin_model->view_student();
-		$this->load->view('student.php', $data);
+		$this->load->view('users.php', $data);
 	}
-	public function add_student()
+	public function add_users()
 	{
 		$fio = trim($_POST['fio']);
 		$login = trim($_POST['login']);
 		$password = trim($_POST['password']);
 		if( !empty($number) && !empty($year) ){
 			if( $this->admin_model->add_student($fio, $login, $password) ){
-				header('Location: /admin/student');
+				header('Location: /admin/users');
 			}
 		}
 	}
 
-	public function delete_srudent()
+	public function delete_users()
 	{
 		$id = (int) $_GET['id'];
 		if( !empty($id) ){
 			if( $this->admin_model->delete_student($id) ){
-				header('Location: /admin/student');
+				header('Location: /admin/users');
 			}
 		}
 	}
 
-	public function edit_student()
+	public function edit_users()
 	{
 		$id = (int) $_GET['id'];
 		if( !empty($id) ){
 			if( $this->admin_model->edit_student($id) ){
-				header('Location: /admin/student');
+				header('Location: /admin/users');
 			}
 		}
 	}
