@@ -209,8 +209,8 @@
 								
 									<td><?=$subjects['name']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_post?id=<?=$post['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="change_post?id=<?=$post['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_subjects?id=<?=$subjects['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="change_subjects?id=<?=$subjects['id']?>"></a>
 									</td>
 								
 							</tr>
