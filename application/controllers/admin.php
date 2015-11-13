@@ -12,7 +12,9 @@ class Admin extends CI_Controller{
 	public function index()
 	{
 		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/home.php',$data);
+		$this->load->view('admin/footer.php',$data);
 	}
 
 	public function add_post()
