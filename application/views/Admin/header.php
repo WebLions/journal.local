@@ -58,25 +58,25 @@
                         <a href="/">Главная</a>
                     </li>
                     <li>
-                        <a href="#">Группы</a>
+                        <a href="/admin/groups">Группы</a>
                     </li>
                     <li>
-                        <a href="#">Преподаватели</a>
+                        <a href="/admin/teachers">Преподаватели</a>
                     </li>
                     <li>
-                        <a href="#">Дисциплины</a>
+                        <a href="/admin/subjects">Дисциплины</a>
                     </li>
                     <li>
-                        <a href="#" class = "active">Пользователи</a>
+                        <a href="/admin/users" class = "active">Пользователи</a>
                     </li>
 					<li>
-                        <a href="#">Учебный план</a>
+                        <a href="/admin/plan">Учебный план</a>
                     </li>
 					<li>
-                        <a href="#">Сервисные операции</a>
+                        <a href="/admin/servise">Сервисные операции</a>
                     </li>
                     <li>
-                        <a href="#">Выход</a>
+                        <a href="/admin/logout">Выход</a>
                     </li>
                    
             </div>
