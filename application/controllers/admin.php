@@ -16,7 +16,56 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/home.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
+	public function groups()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/groups.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
 
+	public function teachers()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/teachers.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function subjects()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/subjects.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function users()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/users.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function plan()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/plan.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function servise()
+	{
+		$data = $this->admin_model->home();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/servise.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function loguot()
+	{
+		header('Location: /');
+	}
+	
+	
+	
 	public function add_post()
 	{
 		$title = trim($_POST['title']);

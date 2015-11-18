@@ -24,4 +24,10 @@ class User extends CI_Controller{
 		}
 	}
 
+	public function index()
+	{
+		$this->load->view('user/header.php');
+		$this->load->view('user/home.php');
+		$this->load->view('user/footer.php');
+	}
 }
