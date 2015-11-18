@@ -95,10 +95,10 @@
 							</div>
 						<br>
 						
-						<button style="float:right;" type="submit" class="btn btn-success">Д3обавить новость</button>			
+						<button style="float:right;" type="submit" class="btn btn-success">Добавить новость</button>			
 						</div>
-				
-                </div>
+					</form>
+							</div>
 						
 					
     </div>

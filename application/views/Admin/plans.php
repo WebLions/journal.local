@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Дисциплины
+                            Учебный план
                         </h1>
 						
 						
@@ -18,11 +18,13 @@
     <div id="groups" class="tab-pane fade in active">
 		<div class = "row">
 			<div class = "col-md-12">
-						<h3>Список дисциплин </h3>
+						<h3>Список годов </h3>
 						<br>
 						<table width = "100%">
 							<tr>
-								<th style = "width: 50%">Название дисциплины</th>
+								<th style = "width: 50%">Учебный год</th>
+								<th style = "width: 50%">Начало</th>
+								<th style = "width: 50%">Окончание</th>
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
                         
