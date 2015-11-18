@@ -16,21 +16,88 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/home.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
+	//работа с групамми
 	public function groups()
 	{
-		$data = $this->admin_model->home();
+		$data['groups'] = $this->admin_model->view_group();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/groups.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-
+	public function add_group()
+	{
+		$id_teacher = trim($_POST['id_teacher']);
+		$number = trim($_POST['number']);
+		$year = trim($_POST['year']);
+		if( !empty($number) && !empty($year) ){
+			if( $this->admin_model->add_group($id_teacher, $number, $year) ){
+				header('Location: /admin/groups');
+			}
+		}
+	}
+	public function delete_group()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_group($id) ){
+				header('Location: /admin/groups');
+			}
+		}
+	}
+	public function edit_group()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) && isset($_POST['number']) && isset($_POST['number'])){
+			if( $this->admin_model->edit_group($id) ){
+				header('Location: /admin/groups');
+			}
+		}elseif (!empty($id)) {
+			$data['group'] = $this->admin_model->view_group();
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_group.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}	
+	}
+	//преподователи
 	public function teachers()
 	{
-		$data = $this->admin_model->home();
+		$data['teachers'] = $this->admin_model->view_teacher();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/teachers.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
+	public function add_teacher()
+	{
+		$fio = trim($_POST['fio']);
+		$login = trim($_POST['login']);
+		$password = trim($_POST['password']);
+		if( !empty($fio) && !empty($login) ){
+			if( $this->admin_model->add_teacher($fio, $login, $password) ){
+				header('Location: /admin/teacher');
+			}
+		}
+	}
+
+	public function delete_teacher()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_teacher($id) ){
+				header('Location: /admin/teacher');
+			}
+		}
+	}
+
+	public function edit_teacher()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->edit_teacher($id) ){
+				header('Location: /admin/teacher');
+			}
+		}
+	}
+	
 	public function subjects()
 	{
 		$data = $this->admin_model->home();
@@ -64,8 +131,6 @@ class Admin extends CI_Controller{
 		header('Location: /');
 	}
 	
-	
-	
 	public function add_post()
 	{
 		$title = trim($_POST['title']);
@@ -95,85 +160,14 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-	public function teacher()
-	{
-		$data['teacher'] = $this->admin_model->view_teacher();
-		$this->load->view('teacher.php', $data);
-	}
-	public function add_teacher()
-	{
-		$fio = trim($_POST['fio']);
-		$login = trim($_POST['login']);
-		$password = trim($_POST['password']);
-		if( !empty($fio) && !empty($login) ){
-			if( $this->admin_model->add_teacher($fio, $login, $password) ){
-				header('Location: /admin/teacher');
-			}
-		}
-	}
 
-	public function delete_teacher()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->delete_teacher($id) ){
-				header('Location: /admin/teacher');
-			}
-		}
-	}
-
-	public function edit_teacher()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->edit_teacher($id) ){
-				header('Location: /admin/teacher');
-			}
-		}
-	}
 	//group
-	public function group()
-	{
-		$data['group'] = $this->admin_model->view_group();
-		$this->load->view('group.php', $data);
-	}
-	public function add_group()
-	{
-		$id_teacher = trim($_POST['id_teacher']);
-		$number = trim($_POST['number']);
-		$year = trim($_POST['year']);
-		if( !empty($number) && !empty($year) ){
-			if( $this->admin_model->add_group($id_teacher, $number, $year) ){
-				header('Location: /admin/group');
-			}
-		}
-	}
-
-	public function delete_group()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->delete_group($id) ){
-				header('Location: /admin/group');
-			}
-		}
-	}
-
-	public function edit_group()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->edit_group($id) ){
-				header('Location: /admin/group');
-			}
-		}
-	}
 	//student
-	public function users()
+	/*public function users()
 	{
 		$data['student'] = $this->admin_model->view_student();
 		$this->load->view('users.php', $data);
-	}
+	}*/
 	public function add_users()
 	{
 		$fio = trim($_POST['fio']);
