@@ -61,7 +61,7 @@ class Admin extends CI_Controller{
 	//преподователи
 	public function teachers()
 	{
-		$data['teachers'] = $this->admin_model->view_teacher();
+		$data['teacher'] = $this->admin_model->view_teacher();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/teachers.php',$data);
 		$this->load->view('admin/footer.php',$data);
@@ -97,33 +97,33 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-	
+
 	public function subjects()
 	{
-		$data = $this->admin_model->home();
+		$data['subjects'] = $this->admin_model->view_subject();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/subjects.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
 	public function users()
 	{
-		$data = $this->admin_model->home();
+		$data['users'] = $this->admin_model->view_student();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/users.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-	public function plan()
+	public function plans()
 	{
-		$data = $this->admin_model->home();
+		$data['plans'] = $this->admin_model->view_plan();
 		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/plan.php',$data);
+		$this->load->view('admin/plans.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-	public function servise()
+	public function services()
 	{
 		$data = $this->admin_model->home();
 		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/servise.php',$data);
+		$this->load->view('admin/services.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
 	public function loguot()
@@ -199,12 +199,7 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-	//subject
-	public function subject()
-	{
-		$data['subject'] = $this->admin_model->view_subject();
-		$this->load->view('subject.php', $data);
-	}
+
 	public function add_subject()
 	{
 		$name = trim($_POST['name']);

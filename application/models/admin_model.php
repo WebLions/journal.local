@@ -88,7 +88,7 @@ class Admin_model extends CI_Model{
 		$this->db->select('group.id as id, group.number as number, teacher.fio as name');
 		$this->db->from('group');
 		if(!empty($_GET['id'])){
-			$this->db->where('id', $_GET['id']);
+			$this->db->where('group.id', $_GET['id']);
 		}
 		$this->db->join('teacher', 'teacher.id = group.id_teacher');
 
@@ -128,7 +128,7 @@ class Admin_model extends CI_Model{
 	//student
 	public function view_student()
 	{
-		$query = $this->db->get('student');
+		$query = $this->db->get('users');
 		return $query->result_array();
 	}
 
@@ -192,5 +192,10 @@ class Admin_model extends CI_Model{
 		$this->db->where('id', $id);
 		$this->db->update('subject', $data);   
 		return true;
+	}
+	public function view_plan()
+	{
+		$query = $this->db->get('plans');
+		return $query->result_array();
 	}
 }
