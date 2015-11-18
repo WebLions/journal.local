@@ -28,15 +28,16 @@
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
                         
-						<?php foreach($subjects as $subject):?>
+						<?php foreach($plans as $plan):?>
 						
 							<tr>
 								
-									<td><?=$subject['name']?></td>
-									
+									<td><?=$plan['year']?></td>
+									<td><?=$plan['first']?></td>
+									<td><?=$plan['second']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_subject?id=<?=$subject['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_subject?id=<?=$subject['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_plan?id=<?=$plan['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_plan?id=<?=$plan['id']?>"></a>
 				
 									</td>
 								
