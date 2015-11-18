@@ -70,10 +70,10 @@
                         <a href="/admin/users" class = "active">Пользователи</a>
                     </li>
 					<li>
-                        <a href="/admin/plan">Учебный план</a>
+                        <a href="/admin/plans">Учебный план</a>
                     </li>
 					<li>
-                        <a href="/admin/servise">Сервисные операции</a>
+                        <a href="/admin/services">Сервисные операции</a>
                     </li>
                     <li>
                         <a href="/admin/logout">Выход</a>
