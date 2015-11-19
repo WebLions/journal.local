@@ -91,10 +91,11 @@ class Admin_model extends CI_Model{
 			   'surname' => $surname ,
 			   'name' => $name ,
 			   'subname' => $subname ,
-			   'login' => $login ,
-			   'password' => md5($password . $login)
-            );
-
+			   'login' => $login
+			);
+		if(!empty($password)){
+			$data['password'] = md5($password . $login);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('teacher', $data);   
 		return true;

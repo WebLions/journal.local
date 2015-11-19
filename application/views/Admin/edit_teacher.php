@@ -11,33 +11,31 @@
                         </h1>
 						
 						
-						
-  
 
   <div class="tab-content">
     <div id="groups" class="tab-pane fade in active">
 		<div class = "row">
 			<div class = "col-md-10">
 			<br>
-			<form action = "/admin/edit_teacher" method = "post">
+			<form action = "/admin/edit_teacher?id=<?=$teacher[0]['id']?>" method = "post">
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Фамилия</span>
-								<input name="surname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="surname" type="text" value="<?=$teacher[0]['surname']?>" class="form-control"  aria-describedby="basic-addon1" required> 
 							</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Имя</span>
-								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="name" type="text" value="<?=$teacher[0]['name']?>" class="form-control"  aria-describedby="basic-addon1" required> 
 							</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Отчество</span>
-								<input name="subname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="subname" type="text" value="<?=$teacher[0]['subname']?>" class="form-control"  aria-describedby="basic-addon1" required> 
 							</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Логин</span>
-								<input name="login" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="login" type="text" value="<?=$teacher[0]['login']?>" class="form-control"  aria-describedby="basic-addon1" required> 
 							</div>
 						<br>
 						<div class="input-group">
@@ -50,7 +48,7 @@
 								<input name="repassword" type="password" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>						
-						<button style="float:right;" type="submit" class="btn btn-success">Добавить преподавателя</button>
+						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
 			</div>
 		</div>						
