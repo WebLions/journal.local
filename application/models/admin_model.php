@@ -7,17 +7,26 @@ class Admin_model extends CI_Model{
 		parent::__construct();
 		$this->load->database();
 	}
-
+	//Главная админки
 	public function home()
 	{
 		$query = $this->db->get('posts');
 		$return['posts'] = $query->result_array();
 		$query = $this->db->get('teacher');
-		$return['teacher'] = $query->result_array();
+		$return['teachers'] = $query->result_array();
 		$query = $this->db->get('subject');
-		$return['subject'] = $query->result_array();
+		$return['subjects'] = $query->result_array();
 		$query = $this->db->get('student');
-		$return['student'] = $query->result_array();
+		$return['students'] = $query->result_array();
+		$query = $this->db->get('lessons');
+		$return['lessons'] = $query->result_array();
+		return $return;
+	}
+	public function view_post()
+	{
+		$this->db->where('id', $_GET['id']);
+		$query = $this->db->get('posts');
+		$return['posts'] = $query->result_array();
 		return $return;
 	}
 	public function add_post($title, $description)
@@ -49,16 +58,22 @@ class Admin_model extends CI_Model{
 		$this->db->update('posts', $data);   
 		return true;
 	}
-	public function view_teacher(){
+	//преподователи
+	public function view_teacher($id){
+		if(!empty($id)){
+			$this->db->where('id', $id);
+		}
 		$query = $this->db->get('teacher');
 		return $query->result_array();
 	}
-	public function add_teacher($fio, $login, $password)
+	public function add_teacher($surname, $name, $subname, $login, $password)
 	{
 		$data = array(
-			   'fio' => $fio ,
+			   'surname' => $surname ,
+			   'name' => $name ,
+			   'subname' => $subname ,
 			   'login' => $login ,
-			   'password' => md5(md5($password)."solt")
+			   'password' => md5($password . $login);
 			);
 		$this->db->insert('teacher', $data); 
 		return true;
@@ -70,18 +85,23 @@ class Admin_model extends CI_Model{
 		return true;
 	}
 
-	public function edit_teacher($id)
+	public function edit_teacher($id, $surname, $name, $subname, $login, $password)
 	{
 		$data = array(
-               'fio' => $_POST['fio'],
-               'login' => $_POST['login'],
-               'password' => md5(md5($_POST['password'])."solt")
+			   'surname' => $surname ,
+			   'name' => $name ,
+			   'subname' => $subname ,
+			   'login' => $login ,
+			   'password' => md5($password . $login);
             );
 
 		$this->db->where('id', $id);
 		$this->db->update('teacher', $data);   
 		return true;
 	}
+
+
+
 	//group
 	public function view_group()
 	{
