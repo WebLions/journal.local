@@ -247,6 +247,16 @@ class Admin extends CI_Controller{
 			$this->load->view('admin/footer.php',$data);
 		}
 	}
+	public function term($id)
+	{
+		$data['terms'] = $this->admin_model->view_term($id);
+		$data['id_term'] = $id;
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/term.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+
+
 
 
 	//работа с групамми
@@ -312,5 +322,6 @@ class Admin extends CI_Controller{
 		$data['student'] = $this->admin_model->view_student();
 		$this->load->view('users.php', $data);
 	}*/
+
 
 }
