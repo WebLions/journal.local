@@ -52,37 +52,39 @@
 		<div class = "row">
 			<div class = "col-md-10">
 			<br>
+			<form action = "/admin/add_teacher" method = "post">
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Фамилия" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Фамилия</span>
+								<input name="surname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Имя" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Имя</span>
+								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Отчество" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Отчество</span>
+								<input name="subname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Логин" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Логин</span>
+								<input name="login" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Пароль" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Пароль</span>
+								<input name="password" type="password" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
 						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="description" type="text" class="form-control" placeholder="Пароль ещё раз" aria-describedby="basic-addon1"> 
+								<span class="input-group-addon" id="basic-addon1">Пароль ещё раз</span>
+								<input name="repassword" type="password" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>						
 						<button style="float:right;" type="submit" class="btn btn-success">Добавить преподавателя</button>
+					</form>
 			</div>
 		</div>
 	</div>
