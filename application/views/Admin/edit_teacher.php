@@ -47,7 +47,9 @@
 								<span class="input-group-addon" id="basic-addon1">Пароль ещё раз</span>
 								<input name="repassword" type="password" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
-						<br>						
+						<br>
+							
+												
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
 			</div>
