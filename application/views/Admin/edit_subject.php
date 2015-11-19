@@ -21,7 +21,7 @@
 		<div class = "row">
 		   <div class = "col-md-10">
 			<br>
-			<form action = "edit_subject" method = "post">
+			<form action = "edit_subject?id=<?=$subject[0]['id']?>" method = "post">
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Название</span>
 								<input name="name" type="text" value ="<?=$subject[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
