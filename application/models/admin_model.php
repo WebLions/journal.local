@@ -135,7 +135,49 @@ class Admin_model extends CI_Model{
 		$this->db->update('subject', $data);   
 		return true;
 	}
+	public function view_user($id = '')
+	{
+		if(!empty($id)){
+			$this->db->where('id', $id);
+		}
+		$query = $this->db->get('users');
+		return $query->result_array();
+	}
 
+	public function add_user($surname, $name, $subname, $login, $password)
+	{
+		$data = array(
+			   'surname' => $surname ,
+			   'name' => $name ,
+			   'subname' => $subname ,
+			   'login' => $login ,
+			   'password' => md5($password . $login)
+			);
+		$this->db->insert('users', $data); 
+		return true;
+	}
+
+	public function delete_user($id)
+	{
+		$this->db->delete('users', array('id' => $id));  
+		return true;
+	}
+
+	public function edit_users($id, $surname, $name, $subname, $login, $password)
+	{
+		$data = array(
+			   'surname' => $surname ,
+			   'name' => $name ,
+			   'subname' => $subname ,
+			   'login' => $login
+			);
+		if(!empty($password)){
+			$data['password'] = md5($password . $login);
+		}
+		$this->db->where('id', $id);
+		$this->db->update('student', $data);   
+		return true;
+	}
 
 
 
@@ -183,41 +225,6 @@ class Admin_model extends CI_Model{
 		return true;
 	}
 	//student
-	public function view_student()
-	{
-		$query = $this->db->get('users');
-		return $query->result_array();
-	}
-
-	public function add_student($fio, $login, $password)
-	{
-		$data = array(
-			   'fio' => $fio ,
-			   'login' => $login ,
-			   'password' => md5(md5($password).'solt')
-			);
-		$this->db->insert('student', $data); 
-		return true;
-	}
-
-	public function delete_student($id)
-	{
-		$this->db->delete('student', array('id' => $id));  
-		return true;
-	}
-
-	public function edit_student($id)
-	{
-		$data = array(
-               'fio' => $_POST['fio'],
-               'login' => $_POST['login'],
-               'password' => $_POST['password']
-            );
-
-		$this->db->where('id', $id);
-		$this->db->update('student', $data);   
-		return true;
-	}
 
 	public function view_plan()
 	{

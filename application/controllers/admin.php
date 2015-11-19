@@ -119,7 +119,6 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-
 	public function delete_subject()
 	{
 		$id = (int) $_GET['id'];
@@ -129,12 +128,11 @@ class Admin extends CI_Controller{
 			}
 		}
 	}
-
 	public function edit_subject()
 	{
 		$id = (int) $_GET['id'];
-		$name = trim($_POST['name']);
-		if( !empty($id) && !empty($id)){
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		if( !empty($id) && !empty($name)){
 			if( $this->admin_model->edit_subject($id, $name) ){
 				header('Location: /admin/subjects');
 			}
@@ -145,7 +143,59 @@ class Admin extends CI_Controller{
 			$this->load->view('admin/footer.php',$data);
 		}
 	}
+	//пользователи
+	public function users()
+	{
+		$data['users'] = $this->admin_model->view_user();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/users.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function add_user()
+	{
+		$surname = trim($_POST['surname']);
+		$name = trim($_POST['name']);
+		$subname = trim($_POST['subname']);
+		$login = trim($_POST['login']);
+		if(trim($_POST['password']) == trim($_POST['repassword'])){
+		$password = trim($_POST['password']);
+			if( !empty($surname) && !empty($name) ){
+				if( $this->admin_model->add_user($surname, $name, $subname, $login, $password) ){
+					header('Location: /admin/users');
+				}
+			}
+		}
+	}
 
+	public function delete_user()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_user($id) ){
+				header('Location: /admin/users');
+			}
+		}
+	}
+
+	public function edit_user()
+	{
+		$id = (int) $_GET['id'];
+		$surname = isset($_POST['surname']) ? $_POST['surname'] : ''; 
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		$subname = isset($_POST['subname']) ? $_POST['subname'] : ''; 
+		$login = isset($_POST['login']) ? $_POST['login'] : ''; 
+		$password = isset($_POST['password']) ? $_POST['password'] : '';  
+		if( !empty($id) && !empty($name)){
+			if( $this->admin_model->edit_user($id, $surname, $name, $subname, $login, $password) ){
+				header('Location: /admin/users');
+			}
+		}elseif (!empty($id)) {
+			$data['user'] = $this->admin_model->view_user($id);
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_user.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}
+	}
 
 
 
@@ -192,13 +242,6 @@ class Admin extends CI_Controller{
 		}	
 	}
 
-	public function users()
-	{
-		$data['users'] = $this->admin_model->view_student();
-		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/users.php',$data);
-		$this->load->view('admin/footer.php',$data);
-	}
 	public function plans()
 	{
 		$data['plans'] = $this->admin_model->view_plan();
@@ -226,36 +269,5 @@ class Admin extends CI_Controller{
 		$data['student'] = $this->admin_model->view_student();
 		$this->load->view('users.php', $data);
 	}*/
-	public function add_users()
-	{
-		$fio = trim($_POST['fio']);
-		$login = trim($_POST['login']);
-		$password = trim($_POST['password']);
-		if( !empty($number) && !empty($year) ){
-			if( $this->admin_model->add_student($fio, $login, $password) ){
-				header('Location: /admin/users');
-			}
-		}
-	}
-
-	public function delete_users()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->delete_student($id) ){
-				header('Location: /admin/users');
-			}
-		}
-	}
-
-	public function edit_users()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->edit_student($id) ){
-				header('Location: /admin/users');
-			}
-		}
-	}
 
 }
