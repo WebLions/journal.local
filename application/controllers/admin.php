@@ -292,13 +292,6 @@ class Admin extends CI_Controller{
 		}	
 	}
 
-	public function plans()
-	{
-		$data['plans'] = $this->admin_model->view_plan();
-		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/plans.php',$data);
-		$this->load->view('admin/footer.php',$data);
-	}
 	public function services()
 	{
 		$data = $this->admin_model->home();
