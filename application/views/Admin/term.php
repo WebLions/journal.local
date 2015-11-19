@@ -44,8 +44,8 @@
 									<td><?=$term['second']?></td>
 									
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_term?id=<?=$term['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="edit_term?id=<?=$term['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="/admin/delete_term?id=<?=$term['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="/admin/edit_term?id=<?=$term['id']?>"></a>
 				
 									</td>
 								
@@ -70,11 +70,7 @@
 								<span class="input-group-addon" id="basic-addon1">Название</span>
 								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 						</div>
-						<br>
-						<select name = "type">
-							<option>Учеба</option>
-							<option>Каникулы</option>
-						</select>
+						
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Начало</span>
@@ -86,6 +82,10 @@
 								<input name="second" type="text" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
+						<select name = "type">
+							<option>Учеба</option>
+							<option>Каникулы</option>
+						</select>
 						<input type="checkbox" name = "now" checked>Текущий
 							
 						<button style="float:right;" type="submit" class="btn btn-success">Добавить учебный период</button>
