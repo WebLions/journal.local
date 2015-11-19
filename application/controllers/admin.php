@@ -198,7 +198,55 @@ class Admin extends CI_Controller{
 			$this->load->view('admin/footer.php',$data);
 		}
 	}
+	//учебный план
+	public function plans()
+	{
+		$data['plans'] = $this->admin_model->view_plan();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/plans.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function add_plan()
+	{
+		$name = trim($_POST['name']);
+		$now = trim($_POST['now']);
+		$first = trim($_POST['first']);
+		$second = trim($_POST['second']);
 
+		if( !empty($name) ){
+			if( $this->admin_model->add_plan($name, $now, $first, $second) ){
+				header('Location: /admin/plans');
+			}
+		}
+	}
+	public function delete_plan()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_plan($id) ){
+				header('Location: /admin/plans');
+			}
+		}
+	}
+	public function edit_plan()
+	{
+		$id = (int) $_GET['id'];
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		$now = isset($_POST['now']) ? $_POST['now'] : ''; 
+		$first = isset($_POST['first']) ? $_POST['first'] : ''; 
+		$second = isset($_POST['second']) ? $_POST['second'] : ''; 
+
+		if( !empty($id) && !empty($name)){
+			if( $this->admin_model->edit_plan($id, $name, $now, $first, $second) ){
+				header('Location: /admin/plans');
+			}
+		}elseif (!empty($id)) {
+			$data['plan'] = $this->admin_model->view_plan($id);
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_plan.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}
+	}
 
 
 	//работа с групамми
