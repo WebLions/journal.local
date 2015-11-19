@@ -62,7 +62,7 @@
 		<div class = "row">
 			<div class = "col-md-10">
 			<br>
-			<form action = "add_term" method = "post">
+			<form action = "/admin/add_term" method = "post">
 						
 						<input type = "hidden" name = "plan" value = "<?=$id_term?>">
 						

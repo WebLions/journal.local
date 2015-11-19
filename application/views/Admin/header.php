@@ -12,8 +12,7 @@
     <title>Административная панель</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
- <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/admin/css/sb-admin.css" rel="stylesheet">
 

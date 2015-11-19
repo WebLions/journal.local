@@ -203,6 +203,7 @@ class Admin_model extends CI_Model{
 		$this->db->delete('plans', array('id' => $id));  
 		return true;
 	}
+	//учкбные семестры
 	public function edit_plan($id, $name, $now, $first, $second)
 	{
 		$data = array(
@@ -217,12 +218,24 @@ class Admin_model extends CI_Model{
 	}
 	public function view_term($id = "")
 	{
-		if(!empty($id)){
-			$this->db->where('id', $id);
-		}
+
+		$this->db->where('id', $id);
 		$query = $this->db->get('terms');
 		return $query->result_array();
 	}
+	public function add_term($id, $name, $type, $first, $second)
+	{
+		$data = array(
+			   'id_plan' => $id,
+			   'name' => $name ,
+			   'type' => $type ,
+			   'first' => $first ,
+			   'second' => $second
+			);
+		$this->db->insert('terms', $data); 
+		return true;
+	}
+
 
 	//group
 	public function view_group()
