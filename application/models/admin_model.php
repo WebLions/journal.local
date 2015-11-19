@@ -163,19 +163,20 @@ class Admin_model extends CI_Model{
 		return true;
 	}
 
-	public function edit_users($id, $surname, $name, $subname, $login, $password)
+	public function edit_user($id, $surname, $name, $subname, $login, $password, $access)
 	{
 		$data = array(
 			   'surname' => $surname ,
 			   'name' => $name ,
 			   'subname' => $subname ,
-			   'login' => $login
+			   'login' => $login,
+			   'access' => $access
 			);
 		if(!empty($password)){
 			$data['password'] = md5($password . $login);
 		}
 		$this->db->where('id', $id);
-		$this->db->update('student', $data);   
+		$this->db->update('users', $data);   
 		return true;
 	}
 
