@@ -82,11 +82,11 @@
 								
 							</tr>
                         
-						<?php foreach($teacher as $teachers):?>
+						<?php foreach($teachers as $teacher):?>
 						
 							<tr>								
-									<td><?=$teachers['fio']?></td>
-									<td></td>																	
+									<td><?=$teacher['surname'].' '.$teacher['name'].' '.$teacher['subname']?></td>
+									<td><?=$teacher['login']?></td>																	
 							</tr>
 						
 						<?php endforeach; echo '<br>';?>
