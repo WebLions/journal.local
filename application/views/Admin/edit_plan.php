@@ -25,17 +25,17 @@
 						
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Название</span>
-								<input name="name" type="text" value = "<?=$plan[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="name" type="text" value = "<?=$plan[0]['name']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Начало</span>
-								<input name="first" type="text" value = "<?=$plan[0]['first']?>" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="first" type="text" value = "<?=$plan[0]['first']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Окончание</span>
-								<input name="second" type="text" value = "<?=$plan[0]['second']?>" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="second" type="text" value = "<?=$plan[0]['second']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<input type="checkbox" checked = "<?=($plan[0]['now']==1)?'checked':'';?>" name = "now" checked>Текущий</input>
