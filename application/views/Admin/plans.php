@@ -35,11 +35,12 @@
 						<?php foreach($plans as $plan):?>
 						
 							<tr>
-								
+
 									<td><?=$plan['name']?></td>
+									<td><?=if($plan['now']==1)?'Да':'Нет'?></td>
 									<td><?=$plan['first']?></td>
 									<td><?=$plan['second']?></td>
-									<td><?=$plan['now']?></td>
+									
 									<td>
 										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="delete_plan?id=<?=$plan['id']?>"></a>
 										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="edit_plan?id=<?=$plan['id']?>"></a>
@@ -67,12 +68,12 @@
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Начало</span>
-								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="first" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Окончание</span>
-								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+								<input name="second" type="text" class="form-control"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<input type="checkbox" name = "now" checked>Текущий</input>
