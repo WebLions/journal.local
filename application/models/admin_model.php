@@ -179,7 +179,39 @@ class Admin_model extends CI_Model{
 		$this->db->update('users', $data);   
 		return true;
 	}
-
+	public function view_plan()
+	{
+		$query = $this->db->get('plans');
+		return $query->result_array();
+	}
+	public function add_plan($name, $now, $first, $second)
+	{
+		$data = array(
+			   'name' => $name ,
+			   'now' => $now ,
+			   'first' => $first ,
+			   'second' => $second
+			);
+		$this->db->insert('plans', $data); 
+		return true;
+	}
+	public function delete_plan($id)
+	{
+		$this->db->delete('plans', array('id' => $id));  
+		return true;
+	}
+	public function edit_plan($id, $name, $now, $first, $second)
+	{
+		$data = array(
+			   'name' => $name ,
+			   'now' => $now ,
+			   'first' => $first,
+			   'second' => $second
+			);
+		$this->db->where('id', $id);
+		$this->db->update('plans', $data);   
+		return true;
+	}
 
 
 	//group
@@ -227,9 +259,4 @@ class Admin_model extends CI_Model{
 	}
 	//student
 
-	public function view_plan()
-	{
-		$query = $this->db->get('plans');
-		return $query->result_array();
-	}
 }
