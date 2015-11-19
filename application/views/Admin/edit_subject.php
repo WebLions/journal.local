@@ -16,7 +16,7 @@
 
 
 
-  <div class="tab-content">
+ <div class="tab-content">
     <div id="subjects" class="tab-pane fade in active">
 		<div class = "row">
 		   <div class = "col-md-10">
@@ -27,7 +27,8 @@
 								<input name="name" type="text" value ="<?=$subject[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
 							</div>
 						<br>
-							
+						
+						<a style="float:right;" href = "subjects" class="btn btn-success">Вернуться</a>		
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
 			</div>

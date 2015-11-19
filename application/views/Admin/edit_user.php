@@ -55,7 +55,8 @@
 								<option selected value="1">Admin</option>
 								<option>#</option>
 								<option>@</option>
-							</select>						
+							</select>
+						<a style="float:right;" href = "users" class="btn btn-success">Вернуться</a>	
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
 			</div>
