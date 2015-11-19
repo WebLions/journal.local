@@ -69,7 +69,7 @@ class Admin extends CI_Controller{
 		$password = trim($_POST['password']);
 			if( !empty($surname) && !empty($login) ){
 				if( $this->admin_model->add_teacher($surname, $name, $subname, $login, $password) ){
-					header('Location: /admin/teacher');
+					header('Location: /admin/teachers');
 				}
 			}
 		}
@@ -79,22 +79,69 @@ class Admin extends CI_Controller{
 		$id = (int) $_GET['id'];
 		if( !empty($id) ){
 			if( $this->admin_model->delete_teacher($id) ){
-				header('Location: /admin/teacher');
+				header('Location: /admin/teachers');
 			}
 		}
 	}
 	public function edit_teacher()
 	{
 		$id = (int) $_GET['id'];
-		$surname = $_POST['surname'];
-		if( !empty($id) && isset($surname)){
+		$surname = isset($_POST['surname']) ? $_POST['surname'] : ''; 
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		$subname = isset($_POST['subname']) ? $_POST['subname'] : ''; 
+		$login = isset($_POST['login']) ? $_POST['login'] : ''; 
+		$password = isset($_POST['password']) ? $_POST['password'] : ''; 
+		if( !empty($id) && !empty($surname)){
 			if( $this->admin_model->edit_teacher($id, $surname, $name, $subname, $login, $password) ){
-				header('Location: /admin/teacher');
+				header('Location: /admin/teachers');
 			}
 		}elseif (!empty($id)) {
 			$data['teacher'] = $this->admin_model->view_teacher($id);
 			$this->load->view('admin/header.php',$data);
 			$this->load->view('admin/edit_teacher.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}
+	}
+	//предметы
+	public function subjects()
+	{
+		$data['subjects'] = $this->admin_model->view_subject();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/subjects.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function add_subject()
+	{
+		$name = trim($_POST['name']);
+		if( !empty($name) ){
+			if( $this->admin_model->add_subject($name) ){
+				header('Location: /admin/subjects');
+			}
+		}
+	}
+
+	public function delete_subject()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_subject($id) ){
+				header('Location: /admin/subjects');
+			}
+		}
+	}
+
+	public function edit_subject()
+	{
+		$id = (int) $_GET['id'];
+		$name = trim($_POST['name']);
+		if( !empty($id) && !empty($id)){
+			if( $this->admin_model->edit_subject($id, $name) ){
+				header('Location: /admin/subjects');
+			}
+		}elseif (!empty($id)) {
+			$data['subject'] = $this->admin_model->view_subject($id);
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_subject.php',$data);
 			$this->load->view('admin/footer.php',$data);
 		}
 	}
@@ -145,13 +192,6 @@ class Admin extends CI_Controller{
 		}	
 	}
 
-	public function subjects()
-	{
-		$data['subjects'] = $this->admin_model->view_subject();
-		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/subjects.php',$data);
-		$this->load->view('admin/footer.php',$data);
-	}
 	public function users()
 	{
 		$data['users'] = $this->admin_model->view_student();
@@ -218,35 +258,4 @@ class Admin extends CI_Controller{
 		}
 	}
 
-	public function add_subject()
-	{
-		$name = trim($_POST['name']);
-		//$login = trim($_POST['login']);
-		//$password = trim($_POST['password']);
-		if( !empty($name) ){
-			if( $this->admin_model->add_subject($name) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
-
-	public function delete_subject()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->delete_subject($id) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
-
-	public function edit_subject()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->edit_subject($id) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
 }

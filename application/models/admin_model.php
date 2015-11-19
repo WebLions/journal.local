@@ -91,14 +91,51 @@ class Admin_model extends CI_Model{
 			   'surname' => $surname ,
 			   'name' => $name ,
 			   'subname' => $subname ,
-			   'login' => $login ,
-			   'password' => md5($password . $login)
-            );
-
+			   'login' => $login
+			);
+		if(!empty($password)){
+			$data['password'] = md5($password . $login);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('teacher', $data);   
 		return true;
 	}
+	//subject
+	public function view_subject($id = '')
+	{
+		if(!empty($id)){
+			$this->db->where('id', $id);
+		}
+		$query = $this->db->get('subject');
+		return $query->result_array();
+	}
+
+	public function add_subject($name)
+	{
+		$data = array(
+			   'name' => $name
+			);
+		$this->db->insert('subject', $data); 
+		return true;
+	}
+
+	public function delete_subject($id)
+	{
+		$this->db->delete('subject', array('id' => $id));  
+		return true;
+	}
+
+	public function edit_subject($id, $name)
+	{
+		$data = array(
+               'name' => $name
+            );
+
+		$this->db->where('id', $id);
+		$this->db->update('subject', $data);   
+		return true;
+	}
+
 
 
 
@@ -181,38 +218,7 @@ class Admin_model extends CI_Model{
 		$this->db->update('student', $data);   
 		return true;
 	}
-	//subject
-	public function view_subject()
-	{
-		$query = $this->db->get('subject');
-		return $query->result_array();
-	}
 
-	public function add_subject($name)
-	{
-		$data = array(
-			   'fio' => $name
-			);
-		$this->db->insert('subject', $data); 
-		return true;
-	}
-
-	public function delete_subject($id)
-	{
-		$this->db->delete('subject', array('id' => $id));  
-		return true;
-	}
-
-	public function edit_subject($id)
-	{
-		$data = array(
-               'name' => $_POST['name']
-            );
-
-		$this->db->where('id', $id);
-		$this->db->update('subject', $data);   
-		return true;
-	}
 	public function view_plan()
 	{
 		$query = $this->db->get('plans');
