@@ -21,16 +21,16 @@
   <div class="tab-content">
     <div id="term" class="tab-pane fade in active">
 		<div class = "row">
-			<div class = "col-md-12">
+			<div class = "col-md-11">
 			<br>
 						<table width = "100%">
 							<tr>
 								<th style = "width: 20%">Название периода</th>
 								<th style = "width: 20%">Тип</th>
-								<th style = "width: 20%">Текущий</th>
+								<th style = "width: 10%">Текущий</th>
 								<th style = "width: 20%">Начало</th>
 								<th style = "width: 20%">Окончание</th>
-								<th style = "width: 20%;text-align:right">Функции</th>
+								<th style = "width: 10%;text-align:right">Функции</th>
 							</tr>
                         
 						<?php foreach($terms as $term):?>
