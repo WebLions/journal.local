@@ -24,6 +24,8 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/groups.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
+
+	
 	public function add_group()
 	{
 		$id_teacher = trim($_POST['id_teacher']);
