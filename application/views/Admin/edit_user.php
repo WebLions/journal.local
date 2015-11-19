@@ -53,8 +53,8 @@
 						<br>	
 							<select name="access">
 								<option selected value="1">Admin</option>
-								<option selected value="2">#</option>
-								<option selected value="3">@</option>
+								<option>#</option>
+								<option>@</option>
 							</select>						
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
