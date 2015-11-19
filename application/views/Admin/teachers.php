@@ -37,7 +37,7 @@
 									<td><?=$teacher['login']?></td>
 									<td>
 										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher?id=<?=$teacher['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher?id=<?=$teacher['id']?>"></a>				
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="edit_teacher?id=<?=$teacher['id']?>"></a>				
 									</td>
 								
 							</tr>
