@@ -37,7 +37,7 @@
 							<tr>
 
 									<td><?=$plan['name']?></td>
-									<td><?=if($plan['now']==1)?'Да':'Нет'?></td>
+									<td><?=($plan['now']==1)?'Да':'Нет'?></td>
 									<td><?=$plan['first']?></td>
 									<td><?=$plan['second']?></td>
 									
