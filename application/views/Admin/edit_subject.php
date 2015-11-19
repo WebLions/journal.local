@@ -7,48 +7,35 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Дисциплины
+                            Редактирование дисциплины
                         </h1>
 						
 						
 						
   
 
+
+
   <div class="tab-content">
-    <div id="groups" class="tab-pane fade in active">
+    <div id="subjects" class="tab-pane fade in active">
 		<div class = "row">
-			<div class = "col-md-12">
-						<h3>Список дисциплин </h3>
+		   <div class = "col-md-10">
+			<br>
+			<form action = "edit_subject" method = "post">
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Название</span>
+								<input name="name" type="text" value ="<?=$subject[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
 						<br>
-						<table width = "100%">
-							<tr>
-								<th style = "width: 50%">Название дисциплины</th>
-								<th style = "width: 20%;text-align:right">Функции</th>
-							</tr>
-                        
-						<?php foreach($subjects as $subject):?>
-						
-							<tr>
-								
-									<td><?=$subject['name']?></td>
-									
-									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_subject?id=<?=$subject['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_subject?id=<?=$subject['id']?>"></a>
-				
-									</td>
-								
-							</tr>
-						
-						<?php endforeach; echo '<br>';?>
-                        
-				</table>
+							
+						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
+					</form>
 			</div>
-		</div>							
-	</div>
-  </div>
 		</div>
+						
 					
+                </div>
+						
 					
                 </div>
                 <!-- /.row -->
