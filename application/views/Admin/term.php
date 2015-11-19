@@ -64,7 +64,7 @@
 			<br>
 			<form action = "add_term" method = "post">
 						
-						<input type = "hidden" name = "plan" value = "<?=$term['id']?>"><input>
+						<input type = "hidden" name = "plan" value = "<?=$id_term?>">
 						
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Название</span>
@@ -86,10 +86,10 @@
 								<input name="second" type="text" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
-						<input type="checkbox" name = "now" checked>Текущий</input>
+						<input type="checkbox" name = "now" checked>Текущий
 							
 						<button style="float:right;" type="submit" class="btn btn-success">Добавить учебный период</button>
-					</form>
+				</form>
 			</div>
 		</div>				
     </div>
