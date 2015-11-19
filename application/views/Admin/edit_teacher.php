@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Преподаватели
+                            Редактирование преподавателя
                         </h1>
 						
 						
@@ -17,34 +17,43 @@
   <div class="tab-content">
     <div id="groups" class="tab-pane fade in active">
 		<div class = "row">
-			<div class = "col-md-12">
-						<h3>Список преподавателей </h3>
+			<div class = "col-md-10">
+			<br>
+			<form action = "/admin/edit_teacher" method = "post">
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Фамилия</span>
+								<input name="surname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
 						<br>
-						<table width = "100%">
-							<tr>
-								<th style = "width: 50%">Преподаватель ФИО</th>
-								<th style = "width: 20%;text-align:right">Функции</th>
-							</tr>
-                        
-						<?php foreach($teacher as $teachers):?>
-						
-							<tr>
-								
-									<td><?=$teachers['fio']?></td>
-									
-									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher?id=<?=$teachers['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher?id=<?=$teachers['id']?>"></a>
-				
-									</td>
-								
-							</tr>
-						
-						<?php endforeach; echo '<br>';?>
-                        
-				</table>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Имя</span>
+								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
+						<br>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Отчество</span>
+								<input name="subname" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
+						<br>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Логин</span>
+								<input name="login" type="text" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
+						<br>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Пароль</span>
+								<input name="password" type="password" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
+						<br>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Пароль ещё раз</span>
+								<input name="repassword" type="password" class="form-control"  aria-describedby="basic-addon1"> 
+							</div>
+						<br>						
+						<button style="float:right;" type="submit" class="btn btn-success">Добавить преподавателя</button>
+					</form>
 			</div>
-		</div>							
+		</div>						
 	</div>
   </div>
 		</div>
