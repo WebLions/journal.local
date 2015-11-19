@@ -69,7 +69,7 @@ class Admin extends CI_Controller{
 		$password = trim($_POST['password']);
 			if( !empty($surname) && !empty($login) ){
 				if( $this->admin_model->add_teacher($surname, $name, $subname, $login, $password) ){
-					header('Location: /admin/teacher');
+					header('Location: /admin/teachers');
 				}
 			}
 		}
@@ -79,17 +79,21 @@ class Admin extends CI_Controller{
 		$id = (int) $_GET['id'];
 		if( !empty($id) ){
 			if( $this->admin_model->delete_teacher($id) ){
-				header('Location: /admin/teacher');
+				header('Location: /admin/teachers');
 			}
 		}
 	}
 	public function edit_teacher()
 	{
 		$id = (int) $_GET['id'];
-		$surname = $_POST['surname'];
-		if( !empty($id) && isset($surname)){
+		$surname = isset($_POST['surname']) ? $_POST['surname'] : ''; 
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		$subname = isset($_POST['subname']) ? $_POST['subname'] : ''; 
+		$login = isset($_POST['login']) ? $_POST['login'] : ''; 
+		$password = isset($_POST['password']) ? $_POST['password'] : ''; 
+		if( !empty($id) && !empty($surname)){
 			if( $this->admin_model->edit_teacher($id, $surname, $name, $subname, $login, $password) ){
-				header('Location: /admin/teacher');
+				header('Location: /admin/teachers');
 			}
 		}elseif (!empty($id)) {
 			$data['teacher'] = $this->admin_model->view_teacher($id);
