@@ -32,7 +32,7 @@
 						
 							<tr>
 								
-									<td><?=$plan['year']?></td>
+									<td><?=$plan['name']?></td>
 									<td><?=$plan['first']?></td>
 									<td><?=$plan['second']?></td>
 									<td>
