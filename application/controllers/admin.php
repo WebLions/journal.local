@@ -255,7 +255,19 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/term.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-
+	public function add_term()
+	{
+		$name = trim($_POST['name']);
+		$type = trim($_POST['type']);
+		$first = trim($_POST['first']);
+		$second = trim($_POST['second']);
+		$id = trim($_POST['plan']);
+		if( !empty($name) ){
+			if( $this->admin_model->add_term($id, $name, $type, $first, $second) ){
+				header('Location: /admin/term/'.$id);
+			}
+		}
+	}
 
 
 
