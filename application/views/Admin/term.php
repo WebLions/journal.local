@@ -63,6 +63,9 @@
 			<div class = "col-md-10">
 			<br>
 			<form action = "add_term" method = "post">
+						
+						<input type = "hidden" name = "plan" value = "<?=$term['id']?>"><input>
+						
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Название</span>
 								<input name="name" type="text" class="form-control"  aria-describedby="basic-addon1"> 
