@@ -102,6 +102,49 @@ class Admin extends CI_Controller{
 			$this->load->view('admin/footer.php',$data);
 		}
 	}
+	//предметы
+	public function subjects()
+	{
+		$data['subjects'] = $this->admin_model->view_subject();
+		$this->load->view('admin/header.php',$data);
+		$this->load->view('admin/subjects.php',$data);
+		$this->load->view('admin/footer.php',$data);
+	}
+	public function add_subject()
+	{
+		$name = trim($_POST['name']);
+		if( !empty($name) ){
+			if( $this->admin_model->add_subject($name) ){
+				header('Location: /admin/subjects');
+			}
+		}
+	}
+
+	public function delete_subject()
+	{
+		$id = (int) $_GET['id'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_subject($id) ){
+				header('Location: /admin/subjects');
+			}
+		}
+	}
+
+	public function edit_subject()
+	{
+		$id = (int) $_GET['id'];
+		$name = trim($_POST['name']);
+		if( !empty($id) && !empty($id)){
+			if( $this->admin_model->edit_subject($id, $name) ){
+				header('Location: /admin/subjects');
+			}
+		}elseif (!empty($id)) {
+			$data['subject'] = $this->admin_model->view_teacher($id);
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_subject.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}
+	}
 
 
 
@@ -149,13 +192,6 @@ class Admin extends CI_Controller{
 		}	
 	}
 
-	public function subjects()
-	{
-		$data['subjects'] = $this->admin_model->view_subject();
-		$this->load->view('admin/header.php',$data);
-		$this->load->view('admin/subjects.php',$data);
-		$this->load->view('admin/footer.php',$data);
-	}
 	public function users()
 	{
 		$data['users'] = $this->admin_model->view_student();
@@ -222,35 +258,4 @@ class Admin extends CI_Controller{
 		}
 	}
 
-	public function add_subject()
-	{
-		$name = trim($_POST['name']);
-		//$login = trim($_POST['login']);
-		//$password = trim($_POST['password']);
-		if( !empty($name) ){
-			if( $this->admin_model->add_subject($name) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
-
-	public function delete_subject()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->delete_subject($id) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
-
-	public function edit_subject()
-	{
-		$id = (int) $_GET['id'];
-		if( !empty($id) ){
-			if( $this->admin_model->edit_subject($id) ){
-				header('Location: /admin/subject');
-			}
-		}
-	}
 }
