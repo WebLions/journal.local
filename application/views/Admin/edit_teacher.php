@@ -49,7 +49,7 @@
 							</div>
 						<br>
 							
-												
+						<a style="float:right;" href = "teachers" class="btn btn-success">Вернуться</a>						
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					</form>
 			</div>

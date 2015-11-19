@@ -14,44 +14,42 @@
 						
   
 
-  <div class="tab-content">
-    <div id="groups" class="tab-pane fade in active">
+
+
+   <div class="tab-content">
+    <div id="subjects" class="tab-pane fade in active">
 		<div class = "row">
-			<div class = "col-md-12">
-						<h3>Список годов </h3>
+		   <div class = "col-md-10">
+			<br>
+			<form action = "edit_plan?id=<?=$plan[0]['id']?>" method = "post">
+						
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Название</span>
+								<input name="name" type="text" value = "<?=$plan[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
+						</div>
 						<br>
-						<table width = "100%">
-							<tr>
-								<th style = "width: 50%">Учебный год</th>
-								<th style = "width: 50%">Начало</th>
-								<th style = "width: 50%">Окончание</th>
-								<th style = "width: 20%;text-align:right">Функции</th>
-							</tr>
-                        
-						<?php foreach($plans as $plan):?>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Начало</span>
+								<input name="name" type="text" value = "<?=$plan[0]['first']?>" class="form-control"  aria-describedby="basic-addon1"> 
+						</div>
+						<br>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Окончание</span>
+								<input name="name" type="text" value = "<?=$plan[0]['second']?>" class="form-control"  aria-describedby="basic-addon1"> 
+						</div>
+						<br>
+						<input type="checkbox" checked = "<?=($plan[0]['now']==1)?'checked':'';?>" name = "now" checked>Текущий</input>
 						
-							<tr>
-								
-									<td><?=$plan['year']?></td>
-									<td><?=$plan['first']?></td>
-									<td><?=$plan['second']?></td>
-									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_plan?id=<?=$plan['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_plan?id=<?=$plan['id']?>"></a>
-				
-									</td>
-								
-							</tr>
-						
-						<?php endforeach; echo '<br>';?>
-                        
-				</table>
-			</div>
-		</div>							
-	</div>
-  </div>
-		</div>
+						<a style="float:right;" href = "plans" class="btn btn-success">Вернуться</a>	
+						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
 					
+					</form>
+			</div>
+		</div>
+						
+					
+                </div>
+						
 					
                 </div>
                 <!-- /.row -->
