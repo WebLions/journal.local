@@ -209,7 +209,7 @@ class Admin extends CI_Controller{
 	public function add_plan()
 	{
 		$name = trim($_POST['name']);
-		$now = trim($_POST['now']);
+		$now = (trim($_POST['now'])=="on") ? '1' : '0';
 		$first = trim($_POST['first']);
 		$second = trim($_POST['second']);
 
