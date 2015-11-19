@@ -44,8 +44,8 @@
 									<td><?=$term['second']?></td>
 									
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="/admin/delete_term?id=<?=$term['id'].'&'.$plan?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="/admin/edit_term?id=<?=$term['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="/admin/delete_term?id=<?=$term['id']?>&plan=<?=$id_term?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="/admin/edit_term?id=<?=$term['id']?>&plan=<?=$id_term?>"></a>
 				
 									</td>
 								
