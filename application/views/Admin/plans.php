@@ -35,7 +35,7 @@
 						<?php foreach($plans as $plan):?>
 						
 							<tr>
-								
+
 									<td><a href ="<?='term/'.$plan['id']?>"><?=$plan['name']?></a></td>
 									<td><?=($plan['now']==1)?'Да':'Нет'?></td>
 									<td><?=$plan['first']?></td>

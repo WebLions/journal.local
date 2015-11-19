@@ -179,8 +179,11 @@ class Admin_model extends CI_Model{
 		$this->db->update('users', $data);   
 		return true;
 	}
-	public function view_plan()
+	public function view_plan($id = "")
 	{
+		if(!empty($id)){
+			$this->db->where('id', $id);
+		}
 		$query = $this->db->get('plans');
 		return $query->result_array();
 	}
@@ -212,7 +215,14 @@ class Admin_model extends CI_Model{
 		$this->db->update('plans', $data);   
 		return true;
 	}
-
+	public function view_term($id = "")
+	{
+		if(!empty($id)){
+			$this->db->where('id', $id);
+		}
+		$query = $this->db->get('terms');
+		return $query->result_array();
+	}
 
 	//group
 	public function view_group()
