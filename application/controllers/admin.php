@@ -16,7 +16,7 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/home.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-	
+
 	public function add_post()
 	{
 		$title = trim($_POST['title']);

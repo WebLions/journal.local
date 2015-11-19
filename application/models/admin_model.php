@@ -59,7 +59,7 @@ class Admin_model extends CI_Model{
 		return true;
 	}
 	//преподователи
-	public function view_teacher($id){
+	public function view_teacher($id = ''){
 		if(!empty($id)){
 			$this->db->where('id', $id);
 		}
@@ -73,7 +73,7 @@ class Admin_model extends CI_Model{
 			   'name' => $name ,
 			   'subname' => $subname ,
 			   'login' => $login ,
-			   'password' => md5($password . $login);
+			   'password' => md5($password . $login)
 			);
 		$this->db->insert('teacher', $data); 
 		return true;
@@ -92,7 +92,7 @@ class Admin_model extends CI_Model{
 			   'name' => $name ,
 			   'subname' => $subname ,
 			   'login' => $login ,
-			   'password' => md5($password . $login);
+			   'password' => md5($password . $login)
             );
 
 		$this->db->where('id', $id);
