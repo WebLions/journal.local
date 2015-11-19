@@ -157,10 +157,11 @@ class Admin extends CI_Controller{
 		$name = trim($_POST['name']);
 		$subname = trim($_POST['subname']);
 		$login = trim($_POST['login']);
+		$access = trim($_POST['access']);
 		if(trim($_POST['password']) == trim($_POST['repassword'])){
 		$password = trim($_POST['password']);
 			if( !empty($surname) && !empty($name) ){
-				if( $this->admin_model->add_user($surname, $name, $subname, $login, $password) ){
+				if( $this->admin_model->add_user($surname, $name, $subname, $login, $password, $access) ){
 					header('Location: /admin/users');
 				}
 			}
@@ -185,8 +186,9 @@ class Admin extends CI_Controller{
 		$subname = isset($_POST['subname']) ? $_POST['subname'] : ''; 
 		$login = isset($_POST['login']) ? $_POST['login'] : ''; 
 		$password = isset($_POST['password']) ? $_POST['password'] : '';  
+		$access = isset($_POST['access']) ? $_POST['access'] : ''; 
 		if( !empty($id) && !empty($name)){
-			if( $this->admin_model->edit_user($id, $surname, $name, $subname, $login, $password) ){
+			if( $this->admin_model->edit_user($id, $surname, $name, $subname, $login, $password, $access) ){
 				header('Location: /admin/users');
 			}
 		}elseif (!empty($id)) {
