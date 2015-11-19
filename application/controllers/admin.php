@@ -139,7 +139,7 @@ class Admin extends CI_Controller{
 				header('Location: /admin/subjects');
 			}
 		}elseif (!empty($id)) {
-			$data['subject'] = $this->admin_model->view_teacher($id);
+			$data['subject'] = $this->admin_model->view_subject($id);
 			$this->load->view('admin/header.php',$data);
 			$this->load->view('admin/edit_subject.php',$data);
 			$this->load->view('admin/footer.php',$data);
