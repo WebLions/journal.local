@@ -306,7 +306,7 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/services.php',$data);
 		$this->load->view('admin/footer.php',$data);
 	}
-	public function loguot()
+	public function logout()
 	{
 		header('Location: /');
 	}
