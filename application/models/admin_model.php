@@ -216,10 +216,12 @@ class Admin_model extends CI_Model{
 		$this->db->update('plans', $data);   
 		return true;
 	}
-	public function view_term($id = "")
+	public function view_term($id = "", $term = "")
 	{
-
-		$this->db->where('id', $id);
+		if(!empty($term)){
+			$this->db->where('id', $term);
+		}
+		$this->db->where('id_plan', $id);
 		$query = $this->db->get('terms');
 		return $query->result_array();
 	}
@@ -233,6 +235,23 @@ class Admin_model extends CI_Model{
 			   'second' => $second
 			);
 		$this->db->insert('terms', $data); 
+		return true;
+	}
+	public function delete_term($id)
+	{
+		$this->db->delete('terms', array('id' => $id));  
+		return true;
+	}
+	public function edit_term($id, $name, $type, $first, $second)
+	{
+		$data = array(
+			   'name' => $name ,
+			   'type' => $type ,
+			   'first' => $first,
+			   'second' => $second
+			);
+		$this->db->where('id', $id);
+		$this->db->update('terms', $data);   
 		return true;
 	}
 

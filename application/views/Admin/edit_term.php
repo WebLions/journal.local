@@ -21,7 +21,7 @@
 		<div class = "row">
 		   <div class = "col-md-10">
 			<br>
-			<form action = "edit_term?id=<?=$term[0]['id'].'&'.$plan?>" method = "post">
+			<form action = "edit_term?id=<?=$term[0]['id']?>&plan=<?=$id_term?>" method = "post">
 						
 						
 						
@@ -40,7 +40,7 @@
 								<input name="second" type="text" value = "<?=$term[0]['second']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
-						<input type="checkbox" checked = "<?=($term[0]['now']==1)?'checked':'';?>" name = "now" checked>Текущий</input>
+						<input type="checkbox" checked = "<?=($term[0]['now']==1)?'checked':'';?>" name = "now" checked>Текущий
 						
 						<a style="float:right;" href = "plans" class="btn btn-success">Вернуться</a>	
 						<button style="float:right;" type="submit" class="btn btn-success">Сохранить</button>
