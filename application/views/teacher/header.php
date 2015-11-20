@@ -55,13 +55,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="/">Главная</a>
+                        <a href="/teacher/index">Главная</a>
                     </li>
                     <li>
                         <a href="/">Группы</a>
                     </li>
                     <li>
-                        <a href="#">Выход</a>
+                        <a href="/teacher/">Выход</a>
                     </li>
                    
             </div>
