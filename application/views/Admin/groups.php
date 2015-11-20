@@ -10,7 +10,11 @@
                             Группы
                         </h1>
 						
-						
+		
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab"  href="#student">Список групп</a></li>		
+		<li><a data-toggle="tab"  href="#student_add">Добавление группы</a></li>		
+    </ul>		
 						
   
 
@@ -18,8 +22,7 @@
     <div id="groups" class="tab-pane fade in active">
 		<div class = "row">
 			<div class = "col-md-12">
-						<h3>Список групп </h3>
-						<br>
+						
 						<table width = "100%">
 							<tr>
 								<th style = "width: 50%">Группа</th>
@@ -45,7 +48,41 @@
                         
 				</table>
 			</div>
+		</div>	
+	<div id="subject_add" class="tab-pane fade">
+		<div class = "row">
+			<div class = "col-md-12">
+			<br>
+				<form action="/admin/add_group" method="post">
+						<div class="col-md-12">
+												
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1"></span>
+								<input name="subject" type="text" class="form-control" placeholder="Шифр группы" aria-describedby="basic-addon1"> 
+						</div>
+						<br>
+						<?php foreach($teachers as $teacher):?>
+						
+							<select>								
+									<option><?=$$teacher['surname'].' '.$$teacher['name'].' '.$$teacher['subname']?></option>							
+							</select>
+						
+						<?php endforeach;?>
+						<br>
+						<?php foreach($plans as $plan):?>
+						
+							<select>								
+									<option><?=$plan['name']?></option>							
+							</select>
+						
+						<?php endforeach;?>
+						
+						<button style="float:right;" type="submit" class="btn btn-success">Добавить дисциплину</button>			
+						</div>
+					</form>
+			</div>
 		</div>							
+	</div>		
 	</div>
   </div>
 		</div>
