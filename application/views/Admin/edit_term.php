@@ -27,7 +27,7 @@
 						
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">Название</span>
-								<input name="name" type="text" value = "<?=$term[0]['name']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
+								<input name="name" type="text" value = "<?=$term[0]['name']?>" class="form-control"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
 						<div class="input-group">
@@ -40,6 +40,10 @@
 								<input name="second" type="text" value = "<?=$term[0]['second']?>" class="form-control datepicker"  aria-describedby="basic-addon1"> 
 						</div>
 						<br>
+						<select name = "type">
+							<option>Учеба</option>
+							<option>Каникулы</option>
+						</select>
 						<input type="checkbox" checked = "<?=($term[0]['now']==1)?'checked':'';?>" name = "now" checked>Текущий
 						
 						<a style="float:right;" href = "plans" class="btn btn-success">Вернуться</a>	
