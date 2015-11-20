@@ -262,13 +262,45 @@ class Admin extends CI_Controller{
 		$first = trim($_POST['first']);
 		$second = trim($_POST['second']);
 		$id = trim($_POST['plan']);
+
 		if( !empty($name) ){
 			if( $this->admin_model->add_term($id, $name, $type, $first, $second) ){
 				header('Location: /admin/term/'.$id);
 			}
 		}
 	}
+	public function delete_term()
+	{
+		$id = (int) $_GET['id'];
+		$plan = (int) $_GET['plan'];
+		if( !empty($id) ){
+			if( $this->admin_model->delete_term($id) ){
+				header('Location: /admin/term/'.$plan);
+			}
+		}
+	}
+	public function edit_term()
+	{
+		$id = (int) $_GET['id'];
+		$plan = isset($_GET['plan']) ? $_GET['plan'] : ''; 
 
+		$name = isset($_POST['name']) ? $_POST['name'] : ''; 
+		$type = isset($_POST['type']) ? $_POST['type'] : ''; 
+		$first = isset($_POST['first']) ? $_POST['first'] : ''; 
+		$second = isset($_POST['second']) ? $_POST['second'] : ''; 
+
+		if( !empty($id) && !empty($name) ){
+			if( $this->admin_model->edit_term($id, $name, $type, $first, $second) ){
+				header('Location: /admin/term/'.$plan);
+			}
+		}elseif (!empty($id)) {
+			$data['term'] = $this->admin_model->view_term($plan, $id);
+			$data['id_term'] = $plan;
+			$this->load->view('admin/header.php',$data);
+			$this->load->view('admin/edit_term.php',$data);
+			$this->load->view('admin/footer.php',$data);
+		}
+	}
 
 
 	//работа с групамми

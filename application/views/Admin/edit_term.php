@@ -21,7 +21,7 @@
 		<div class = "row">
 		   <div class = "col-md-10">
 			<br>
-			<form action = "edit_term?id=<?=$term[0]['id'].'&'.$plan?>" method = "post">
+			<form action = "edit_term?id=<?=$term[0]['id']?>&plan=<?=$id_term?>" method = "post">
 						
 						
 						
