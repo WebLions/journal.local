@@ -15,32 +15,31 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab"  href="#student">Список студентов</a></li>		
 		<li><a data-toggle="tab"  href="#student_add">Добавление студента</a></li>
-		<li><a data-toggle="tab" href="#subject">Список дисциплин</a></li>
+		<li><a data-toggle="tab" href="#subjects">Список дисциплин</a></li>
 		<li><a data-toggle="tab" href="#subject_add">Добавление дисциплины</a></li>
     </ul>					
   
 
   <div class="tab-content">
-    <div id="student_add" class="tab-pane fade in active">
-	<div id="subjects" class="tab-pane fade">
+  <div id="student" class="tab-pane fade">
 		<div class = "row">
 			<div class = "col-md-12">
 			<table width = "100%">
 							<tr>
-								<th style = "width: 25%">Дисциплина</th>
-								<th style = "width: 30%">Преподаватель</th>
+								<th style = "width: 5%">№</th>
+								<th style = "width: 30%">ФИО</th>
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
                         
-						<?php foreach($teachers as $teacher):?>
+						<?php foreach($students as $student):?>
 						
 							<tr>
 								
-									<td><?=$teacher['subject']?></td>
-									<td><?=$$teacher['surname'].' '.$$teacher['name'].' '.$$teacher['subname']?></td>
+									<td><?=$student['id']?></td>
+									<td><?=$student['surname'].' '.$student['name'].' '.$student['subname']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher[?id=<?=$teacher[['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher[?id=<?=$teacher[['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_student?id=<?=$student['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_student?id=<?=$student['id']?>"></a>
 				
 									</td>
 								
@@ -52,6 +51,9 @@
 			</div>
 		</div>							
 	</div>
+    
+	
+	<div id="student_add" class="tab-pane fade in active">
 		<div class = "row">
 		
 			<div class = "col-md-12">
@@ -152,6 +154,36 @@
 			
 		</div>							
 	</div>
+	<div id="subjects" class="tab-pane fade">
+		<div class = "row">
+			<div class = "col-md-12">
+			<table width = "100%">
+							<tr>
+								<th style = "width: 25%">Дисциплина</th>
+								<th style = "width: 30%">Преподаватель</th>
+								<th style = "width: 20%;text-align:right">Функции</th>
+							</tr>
+                        
+						<?php foreach($teachers as $teacher):?>
+						
+							<tr>
+								
+									<td><?=$teacher['subject']?></td>
+									<td><?=$$teacher['surname'].' '.$$teacher['name'].' '.$$teacher['subname']?></td>
+									<td>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher[?id=<?=$teacher[['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher[?id=<?=$teacher[['id']?>"></a>
+				
+									</td>
+								
+							</tr>
+						
+						<?php endforeach; echo '<br>';?>
+                        
+				</table>
+			</div>
+		</div>							
+	</div>
 	<div id="subject_add" class="tab-pane fade">
 		<div class = "row">
 			<div class = "col-md-12">
@@ -176,39 +208,8 @@
 			</div>
 		</div>							
 	</div>
+
 	
-	
-	
-	<div id="student" class="tab-pane fade">
-		<div class = "row">
-			<div class = "col-md-12">
-			<table width = "100%">
-							<tr>
-								<th style = "width: 5%">№</th>
-								<th style = "width: 30%">ФИО</th>
-								<th style = "width: 20%;text-align:right">Функции</th>
-							</tr>
-                        
-						<?php foreach($students as $student):?>
-						
-							<tr>
-								
-									<td><?=$student['id']?></td>
-									<td><?=$student['surname'].' '.$student['name'].' '.$student['subname']?></td>
-									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_student?id=<?=$student['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_student?id=<?=$student['id']?>"></a>
-				
-									</td>
-								
-							</tr>
-						
-						<?php endforeach; echo '<br>';?>
-                        
-				</table>
-			</div>
-		</div>							
-	</div>
 	
   </div>
 		</div>

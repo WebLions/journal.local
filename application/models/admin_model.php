@@ -270,12 +270,12 @@ class Admin_model extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function add_group($id_teacher, $number, $year)
+	public function add_group($id_teacher, $number, $id_plan)
 	{
 		$data = array(
 			   'id_teacher' => $id_teacher ,
 			   'number' => $number ,
-			   'year' => $year
+			   'id_plan' => $id_plan
 			);
 		$this->db->insert('group', $data); 
 		return true;
@@ -299,6 +299,16 @@ class Admin_model extends CI_Model{
 		$this->db->update('group', $data);   
 		return true;
 	}
-	//student
+	
+	public function get_teachers()
+	{
+		$query = $this->db->get('teacher');
+		return $query->result_array();
+	}
+	public function get_plans()
+	{
+		$query = $this->db->get('plans');
+		return $query->result_array();
+	}
 
 }
