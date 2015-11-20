@@ -344,7 +344,10 @@ class Admin extends CI_Controller{
 		}elseif (!empty($id)) {
 			$data['group'] = $this->admin_model->view_group();
 			$data['students'] = $this->admin_model->get_students($id);
+			$data['subjects'] = $this->admin_model->get_subjects($id);
 			$data['id'] = $id;
+			$data['teachers'] = $this->admin_model->get_teachers($id);
+			$data['group_subjects'] = $this->admin_model->get_group_subjects($id);
 			$this->load->view('admin/header.php',$data);
 			$this->load->view('admin/edit_group.php',$data);
 			$this->load->view('admin/footer.php',$data);
@@ -371,9 +374,19 @@ class Admin extends CI_Controller{
 		$insert['id_group'] = $id;
 
 		if( $this->admin_model->add_student($insert) ){
-			header('Location: /admin/groups?id='.$id);
+			header('Location: /admin/edit_group?id='.$id);
 		}
 
+	}
+	public function add_group_subject()
+	{
+		$id = $_GET['group'];
+		$insert['id_subject'] = trim($_POST['subject']);
+		$insert['id_teacher'] = trim($_POST['teacher']);
+		$insert['id_group'] = $id;
+
+		$this->admin_model->add_group_subject($insert);
+		header('Location: /admin/edit_group?id='.$id);
 	}
 
 	public function services()
