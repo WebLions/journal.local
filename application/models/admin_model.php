@@ -303,11 +303,28 @@ class Admin_model extends CI_Model{
 	{
 		$this->db->insert('student', $data); 
 	}
-	
+	public function get_subjects()
+	{
+		$query = $this->db->get('subject');
+		return $query->result_array();
+	}	
 	public function get_teachers()
 	{
 		$query = $this->db->get('teacher');
 		return $query->result_array();
+	}
+	public function get_group_subjects($id)
+	{
+		$this->db->select('group_subject.id as id, subject.name as subject, teacher.name as name, teacher.surname as surname, teacher.subname as subname');
+		$this->db->join('subject', 'subject.id = group_subject.id_subject');
+		$this->db->join('teacher', 'teacher.id = group_subject.id_teacher');
+		$this->db->where('group_subject.id_group', $id);
+		$query = $this->db->get('group_subject');
+		return $query->result_array();
+	}
+	public function add_group_subject($data)
+	{
+		$this->db->insert('group_subject', $data); 
 	}
 	public function get_plans()
 	{

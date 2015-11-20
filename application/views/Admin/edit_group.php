@@ -21,7 +21,7 @@
   
 
   <div class="tab-content">
-  <div id="student" class="tab-pane fade">
+  <div id="student" class="tab-pane fade in active">
 		<div class = "row">
 			<div class = "col-md-12">
 			<table width = "100%">
@@ -53,7 +53,7 @@
 	</div>
     
 	
-	<div id="student_add" class="tab-pane fade in active">
+	<div id="student_add" class="tab-pane fade">
 		<div class = "row">
 		
 			<div class = "col-md-12">
@@ -164,15 +164,15 @@
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
                         
-						<?php foreach($teachers as $teacher):?>
+						<?php foreach($group_subjects as $group_subject):?>
 						
 							<tr>
 								
-									<td><?=$teacher['subject']?></td>
-									<td><?=$$teacher['surname'].' '.$$teacher['name'].' '.$$teacher['subname']?></td>
+									<td><?=$group_subject['subject']?></td>
+									<td><?=$group_subject['surname'].' '.$group_subject['name'].' '.$group_subject['subname']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher[?id=<?=$teacher[['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher[?id=<?=$teacher[['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="/admin/delete_group_subject?id=<?=$group_subject['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="/admin/edit_group_subject?id=<?=$group_subject['id']?>"></a>
 				
 									</td>
 								
@@ -188,17 +188,25 @@
 		<div class = "row">
 			<div class = "col-md-12">
 			<br>
-				<form action="/admin/edit_group" method="post">
+				<form action="/admin/add_group_subject?group=<?=$id?>" method="post">
 						<div class="col-md-12">
 												
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="subject" type="text" class="form-control" placeholder="Дисциплина" aria-describedby="basic-addon1"> 
+								<select name="subject" class="form-control" placeholder="Дисциплина" aria-describedby="basic-addon1"> 
+								<?php foreach($subjects as $subject):?>	
+									<option value="<?=$subject['id']?>"><?=$subject['name']?></option>
+								<?php endforeach;?>
+								</select>
 							</div>
 						<br>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"></span>
-								<input name="teacher" type="text" class="form-control" placeholder="Преподаватель" aria-describedby="basic-addon1"> 
+								<select name="teacher" class="form-control" placeholder="Преподователи" aria-describedby="basic-addon1"> 
+								<?php foreach($teachers as $teacher):?>	
+									<option value="<?=$teacher['id']?>"><?=$teacher['name']?></option>
+								<?php endforeach;?>
+								</select>
 							</div>
 						<br>
 						
