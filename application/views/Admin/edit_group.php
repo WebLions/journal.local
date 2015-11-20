@@ -15,7 +15,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab"  href="#student">Список студентов</a></li>		
 		<li><a data-toggle="tab"  href="#student_add">Добавление студента</a></li>
-		<li><a data-toggle="tab" href="#subject">Список дисциплин</a></li>
+		<li><a data-toggle="tab" href="#subjects">Список дисциплин</a></li>
 		<li><a data-toggle="tab" href="#subject_add">Добавление дисциплины</a></li>
     </ul>					
   
@@ -161,10 +161,10 @@
 							<tr>
 								
 									<td><?=$teacher['subject']?></td>
-									<td><?=$$teacher['surname'].' '.$$teacher['name'].' '.$$teacher['subname']?></td>
+									<td><?=$teacher['surname'].' '.$teacher['name'].' '.$teacher['subname']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher[?id=<?=$teacher[['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher[?id=<?=$teacher[['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_teacher?id=<?=$teacher['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_teacher?id=<?=$teacher['id']?>"></a>
 				
 									</td>
 								
