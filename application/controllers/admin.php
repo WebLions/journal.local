@@ -307,6 +307,8 @@ class Admin extends CI_Controller{
 	public function groups()
 	{
 		$data['groups'] = $this->admin_model->view_group();
+		$data['teachers'] = $this->admin_model->get_teachers();
+		$data['plans'] = $this->admin_model->get_plans();
 		$this->load->view('admin/header.php',$data);
 		$this->load->view('admin/groups.php',$data);
 		$this->load->view('admin/footer.php',$data);
@@ -315,9 +317,9 @@ class Admin extends CI_Controller{
 	{
 		$id_teacher = trim($_POST['id_teacher']);
 		$number = trim($_POST['number']);
-		$year = trim($_POST['year']);
-		if( !empty($number) && !empty($year) ){
-			if( $this->admin_model->add_group($id_teacher, $number, $year) ){
+		$id_plan = trim($_POST['id_plan']);
+		if( !empty($number) && !empty($id_plan) ){
+			if( $this->admin_model->add_group($id_teacher, $number, $id_plan) ){
 				header('Location: /admin/groups');
 			}
 		}
