@@ -336,16 +336,44 @@ class Admin extends CI_Controller{
 	public function edit_group()
 	{
 		$id = (int) $_GET['id'];
+
 		if( !empty($id) && isset($_POST['number']) && isset($_POST['number'])){
 			if( $this->admin_model->edit_group($id) ){
-				header('Location: /admin/groups');
+				header('Location: /admin/groups?id='.$id);
 			}
 		}elseif (!empty($id)) {
 			$data['group'] = $this->admin_model->view_group();
+			$data['students'] = $this->admin_model->get_students($id);
+			$data['id'] = $id;
 			$this->load->view('admin/header.php',$data);
 			$this->load->view('admin/edit_group.php',$data);
 			$this->load->view('admin/footer.php',$data);
 		}	
+	}
+	public function add_student($value='')
+	{
+		$id = $_GET['group'];
+		$insert['surname'] = trim($_POST['surname']);
+		$insert['name'] = trim($_POST['name']);
+		$insert['subname'] = trim($_POST['subname']);
+		$insert['birthday'] = trim($_POST['birthday']);
+		$insert['tell'] = trim($_POST['tell']);
+		$insert['adress'] = trim($_POST['adress']);
+		$insert['pin'] = trim($_POST['pin']);
+		$insert['email'] = trim($_POST['email']);
+		$insert['tell_sms'] = trim($_POST['tell_sms']);
+		$insert['fio_mother'] = trim($_POST['fio_mother']);
+		$insert['work_tell_mother'] = trim($_POST['work_tell_mother']);
+		$insert['tell_mother'] = trim($_POST['tell_mother']);
+		$insert['fio_father'] = trim($_POST['fio_father']);
+		$insert['work_tell_father'] = trim($_POST['work_tell_father']);
+		$insert['tell_father'] = trim($_POST['tell_father']);
+		$insert['id_group'] = $id;
+
+		if( $this->admin_model->add_student($insert) ){
+			header('Location: /admin/groups?id='.$id);
+		}
+
 	}
 
 	public function services()

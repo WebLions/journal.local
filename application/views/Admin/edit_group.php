@@ -25,7 +25,7 @@
 		<div class = "row">
 			<div class = "col-md-12">
 						
-						<form action="/admin/edit_group" method="post">
+						<form action="/admin/add_student?group=<?=$id?>" method="post">
 						<div class="col-md-4">
 						
 						<h3>Данные о студенте</h3>

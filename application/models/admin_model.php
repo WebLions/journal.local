@@ -299,6 +299,10 @@ class Admin_model extends CI_Model{
 		$this->db->update('group', $data);   
 		return true;
 	}
+	public function add_student($data)
+	{
+		$this->db->insert('student', $data); 
+	}
 	
 	public function get_teachers()
 	{
@@ -310,5 +314,10 @@ class Admin_model extends CI_Model{
 		$query = $this->db->get('plans');
 		return $query->result_array();
 	}
-
+	public function get_students($id = '')
+	{	
+		$this->db->where('id_group', $id);
+		$query = $this->db->get('student');
+		return $query->result_array();
+	}
 }
