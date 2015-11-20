@@ -26,7 +26,6 @@
 								<th style = "width: 30%">Куратор</th>
 								<th style = "width: 20%;text-align:right">Функции</th>
 							</tr>
-                        
 						<?php foreach($groups as $group):?>
 						
 							<tr>
@@ -34,8 +33,8 @@
 									<td><?=$group['number']?></td>
 									<td><?=$group['name']?></td>
 									<td>
-										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="admin/delete_group?id=<?=$group['id']?>"></a>
-										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="admin/edit_group?id=<?=$group['id']?>"></a>
+										<a class="glyphicon glyphicon-trash btn btn-danger btn-xs" style="float:right;" href="/admin/delete_group?id=<?=$group['id']?>"></a>
+										<a class="glyphicon glyphicon-pencil btn btn-success btn-xs" style="float:right;" href="/admin/edit_group?id=<?=$group['id']?>"></a>
 				
 									</td>
 								

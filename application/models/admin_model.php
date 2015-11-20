@@ -259,7 +259,7 @@ class Admin_model extends CI_Model{
 	//group
 	public function view_group()
 	{
-		$this->db->select('group.id as id, group.number as number, teacher.fio as name');
+		$this->db->select('group.id as id, group.number as number, teacher.name as name');
 		$this->db->from('group');
 		if(!empty($_GET['id'])){
 			$this->db->where('group.id', $_GET['id']);
