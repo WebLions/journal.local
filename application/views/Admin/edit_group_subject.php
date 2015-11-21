@@ -69,7 +69,7 @@
 							</div>
 						<br>
 						
-						<button style="float:right;" type="submit"  class="btn btn-success">Добавить дисциплину</button>			
+						<button style="float:right;" type="submit"  class="btn btn-success">Сохранить</button>			
 						</div>
 					</form>
 			</div>
